@@ -1,12 +1,13 @@
 const int BUTTON_PIN = 7;  
 const int LED_PIN    = 8;      
+const int BAUD_RATE  = 9600;
   
 int led_state = LOW;       
 int last_button_state;      
 int current_button_state; 
   
 void setup() {
-  Serial.begin(9600);                       
+  Serial.begin(BAUD_RATE);                       
   pinMode(BUTTON_PIN, INPUT);  
   pinMode(LED_PIN, OUTPUT);      
   
