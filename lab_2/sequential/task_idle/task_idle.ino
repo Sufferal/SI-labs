@@ -41,7 +41,12 @@ void task_idle() {
   if (prev_blink_interval != blink_interval) {
     Serial.print("\n(Status): Blink interval was updated to: ");
     Serial.print(blink_interval);
-    Serial.print(" milliseconds.");
+    Serial.print(" ms.");
     prev_blink_interval = blink_interval;
+  }
+
+  if (prev_danger_led_state != danger_led_state) {
+    Serial.print("\n(Warning): Blink interval is at a limit.");
+    prev_danger_led_state = danger_led_state;
   }
 }
