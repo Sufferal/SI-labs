@@ -17,7 +17,7 @@
 #define REC_TASK_PUSH     2
 #define REC_TASK_BLINK    1
 #define REC_TASK_INTERVAL 3
-#define REC_TASK_DANGER   3
+#define REC_TASK_DANGER   4 
 
 #define OFFSET_TASK_PUSH     2
 #define OFFSET_TASK_BLINK    1
@@ -62,7 +62,7 @@ void timer_handle_interrupts(int timer) {
 
   if (--rec_counter_danger <= 0) {
     task_danger();
-    rec_counter_danger = OFFSET_TASK_DANGER;
+    rec_counter_danger = REC_TASK_DANGER;
   }
 }
 
