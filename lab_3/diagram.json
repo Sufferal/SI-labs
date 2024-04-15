@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "Ciprian",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -233.4, "left": -208.4, "attrs": {} },
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 37.4,
+      "left": -167.8,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -199.5,
+      "left": -192.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -190.5,
+      "left": -61.7,
+      "attrs": { "distance": "273" }
+    }
+  ],
+  "connections": [
+    [ "ntc1:VCC", "bb1:bp.5", "red", [ "v0" ] ],
+    [ "ntc1:GND", "bb1:bn.6", "black", [ "v0" ] ],
+    [ "ntc1:OUT", "uno:A0", "limegreen", [ "h-9.5", "v105.6", "h42.2" ] ],
+    [ "ultrasonic1:VCC", "bb1:bp.17", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "bb1:bn.20", "black", [ "v0" ] ],
+    [ "bb1:bp.25", "bb1:tp.25", "red", [ "h40", "v-174" ] ],
+    [ "bb1:bn.25", "bb1:tn.25", "black", [ "v-1.3", "h49.6", "v-192" ] ],
+    [ "bb1:bp.1", "uno:5V", "red", [ "h-56", "v75.9", "h176.6" ] ],
+    [ "uno:GND.2", "bb1:bn.1", "black", [ "v-28.7", "h-157.5", "v-56.3" ] ],
+    [ "uno:9", "ultrasonic1:TRIG", "yellow", [ "v19.2", "h172", "v-220.8", "h-95.6" ] ],
+    [ "ultrasonic1:ECHO", "uno:8", "yellow", [ "v115.2", "h95.2", "v240", "h-192", "v-28.8" ] ],
+    [ "ntc1:GND", "bb1:8b.h", "", [ "$bb" ] ],
+    [ "ntc1:VCC", "bb1:7b.h", "", [ "$bb" ] ],
+    [ "ntc1:OUT", "bb1:6b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:VCC", "bb1:21b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:22b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:23b.h", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:24b.h", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
